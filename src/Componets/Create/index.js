@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Todolist from '../Todolist/index'
+import Todolist from '../Todolist'
 
 export default function Index() {
     const [taskList, setTaskList] = useState([]);
@@ -8,6 +8,8 @@ export default function Index() {
         let temList = taskList;
         temList.push(taskObj)
         setTaskList(temList)
+        
+
     }
 
     return (

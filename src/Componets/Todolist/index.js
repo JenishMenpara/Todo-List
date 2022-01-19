@@ -12,7 +12,7 @@ export default function Index({ save }) {
     }
 
     const [taskName, setTaskName] = useState("");
-    const [des, setDes] = useState("");
+    const [des, setDes] = useState(""); 
 
     const handleChange = (e) => {
         /* const name=e.target.name;
@@ -31,6 +31,8 @@ export default function Index({ save }) {
         taskObj["Name"]= taskName
         taskObj["Des"]=des
         save(taskObj)
+        setopen(false)
+        
     }
 
     return (
