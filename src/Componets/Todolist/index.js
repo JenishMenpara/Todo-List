@@ -4,7 +4,7 @@ import './index.css';
 
 
   
-export default function Index({}) {
+export default function Index(props) {
 
     //open create box
     const [open, setOpen] = useState(false);
@@ -12,11 +12,16 @@ export default function Index({}) {
     const toggle = () => {
         setOpen(!open)
     }
+    
+    
     // set value for title and dec for writing in title and des box
+    
     const [taskName, setTaskName] = useState("");
     const [des, setDes] = useState("");
     //const [status, setStatus] = useState("");
 
+   
+   
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -29,14 +34,19 @@ export default function Index({}) {
 
     }
     // save value of title and des in obj array
-    /* const savetext = () => {
+    const savetext = () => {
         let taskObj = {}
         taskObj["Name"] = taskName;
         taskObj["Des"] = des;
-        save(taskObj)
+        props.save(taskObj)
         //setopen(false)
 
-    } */
+    }
+    
+       
+    
+    
+    
 
     return (
 
@@ -78,7 +88,7 @@ export default function Index({}) {
                                 </div>
                             </form>
                             <hr></hr>
-                            <button className="close-inputbox-ADD" onClick={toggle}>ADD List</button>
+                            <button className="close-inputbox-ADD" onClick={savetext}>ADD List</button>
                             <button className="close-inputbox-Cancel" onClick={toggle}>Cancel</button>
                         </div>
                     </div>
