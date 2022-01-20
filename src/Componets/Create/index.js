@@ -1,4 +1,4 @@
-/* import React, {useState} from 'react'
+import React, {useState} from 'react'
 import Todolist from '../Todolist/index'
 
 export default function Index() {
@@ -16,10 +16,9 @@ export default function Index() {
 
         <>
         <div>
-            {taskList.map((obj)=><p>{obj.Name}, {obj.Des} </p>)}
+         {taskList.map((obj) => <li>{obj.Name} </li>)}
         </div>
              <Todolist  save = {saveTask} />
         </>
     )
 }
- */

@@ -39,6 +39,7 @@ export default function Index(props) {
         taskObj["Name"] = taskName;
         taskObj["Des"] = des;
         props.save(taskObj)
+        alert(taskObj)
         setOpen(false)
 
     }
