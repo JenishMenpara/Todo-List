@@ -3,22 +3,24 @@ import './index.css';
 
 
 
-export default function Index({ save }) {
+  
+export default function Index({}) {
 
-    const [open, setopen] = useState(false);
+    //open create box
+    const [open, setOpen] = useState(false);
 
     const toggle = () => {
-        setopen(!open)
+        setOpen(!open)
     }
-
+    // set value for title and dec for writing in title and des box
     const [taskName, setTaskName] = useState("");
-    const [des, setDes] = useState(""); 
+    const [des, setDes] = useState("");
+    //const [status, setStatus] = useState("");
 
     const handleChange = (e) => {
-        /* const name=e.target.name;
-        const value =e.target.value; */
-        const { name, value } = e.target
-
+        const name = e.target.name;
+        const value = e.target.value;
+        /* const { name, value } = e.target */
         if (name === "taskName") {
             setTaskName(value)
         } else {
@@ -26,14 +28,15 @@ export default function Index({ save }) {
         }
 
     }
-    const savetext = () => {
+    // save value of title and des in obj array
+    /* const savetext = () => {
         let taskObj = {}
-        taskObj["Name"]= taskName
-        taskObj["Des"]=des
+        taskObj["Name"] = taskName;
+        taskObj["Des"] = des;
         save(taskObj)
-        setopen(false)
-        
-    }
+        //setopen(false)
+
+    } */
 
     return (
 
@@ -48,7 +51,7 @@ export default function Index({ save }) {
 
                 {open && (
                     <div className="inputbox">
-                        <div onClick={toggle} className="overlay"></div>
+                        <div  className="overlay"></div>
                         <div className="inputbox-content">
                             <h2>Create Task</h2>
                             <hr></hr>
@@ -63,9 +66,19 @@ export default function Index({ save }) {
 
                                     <textarea rows={7} value={des} onChange={handleChange} name='des'></textarea>
                                 </div>
+
+                                <div className='form-g' id='text-of-title'>
+
+                                <label>Status:</label>
+                                <select className='show-status' /* name={status} onChange={handleChange}  */id="Status">
+                                    {/* <option value="ToDo">Todo</option> */}
+                                    <option value="inprogress">Inprogress</option>
+                                    <option value="Done">Done</option>
+                                </select>
+                                </div>
                             </form>
                             <hr></hr>
-                            <button className="close-inputbox-ADD" onClick={savetext}>ADD List</button>
+                            <button className="close-inputbox-ADD" onClick={toggle}>ADD List</button>
                             <button className="close-inputbox-Cancel" onClick={toggle}>Cancel</button>
                         </div>
                     </div>
@@ -75,6 +88,7 @@ export default function Index({ save }) {
 
 
             </div>
+            {/* <Create /> */}
         </>
     )
 }

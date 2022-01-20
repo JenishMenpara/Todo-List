@@ -1,7 +1,9 @@
-/* import React, {useState} from 'react'
-import Todolist from '../Todolist/index'
+import React, {useState} from 'react';
+import Todolist from '../Todolist/index';
 
-export default function Index() {
+
+export default function Todocreate() {
+
     const [taskList, setTaskList] = useState([]);
 
     const saveTask = (taskObj) =>{
@@ -9,17 +11,16 @@ export default function Index() {
         temList.push(taskObj)
         localStorage.setItem('taskList', JSON.stringify(temList)  )
         setTaskList(temList)
-        //setOpen(false)
+        /* setOpen(false) */
     }
 
     return (
 
         <>
         <div>
-            {taskList.map((obj)=><p>{obj.Name}, {obj.Des} </p>)}
+           {/*  {taskList.map((obj)=><p>{obj.Name}, {obj.Des} </p>)} */}
         </div>
              <Todolist  save = {saveTask} />
         </>
     )
 }
- */
