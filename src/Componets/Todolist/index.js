@@ -46,6 +46,7 @@ export default function Index(props) {
         props.save(taskObj)
         //alert(taskObj)
         setOpen(false)
+        window.location.reload();
 
     }
     
@@ -84,7 +85,7 @@ export default function Index(props) {
                                 <select  value={status} className='show-status' name="status" onChange={handleChange} id="Status" >
                                     <option value="">select </option>
                                     <option value="ToDo">Todo</option>
-                                    <option value="inprogress">Inprogress</option>
+                                    <option value="Inprogress">Inprogress</option>
                                     <option value="Done">Done</option>
                                 </select>
                                 </div>

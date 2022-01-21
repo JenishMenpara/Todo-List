@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Todolist from "../Todolist/index";
-import "./List.json";
+
 import Card from "./Card";
 //import Status from "./Status";
 
@@ -22,15 +22,24 @@ export default function Index() {
     }
   }, []);
 
+ 
+
+ /*  const remove = (index) =>{
+    let tempList = taskList
+    tempList.splice(index, 1)
+    localStorage.setItem("taskList", JSON.stringify(tempList))
+    setTaskList(tempList)
+} */
+
   return (
     <>
       <Todolist save={saveTask} />
       {/* <Status status={taskList} /> */}
 
       <div>
-        {taskList.filter((cheak)=>cheak.Status == "ToDo").map((obj) => (<Card taskadd={obj} /> ))}
-        {taskList.filter((cheak)=>cheak.Status == "Inprogress").map((obj) => (<Card taskadd={obj} /> ))}
-        {taskList.filter((cheak)=>cheak.Status == "Done").map((obj) => (<Card taskadd={obj} /> ))}
+        {taskList.filter((cheak)=>cheak.Status === "ToDo").map((obj, index) => (<Card taskadd={obj} index={index}  status="Todo"/> ))}
+        {taskList.filter((cheak)=>cheak.Status === "Inprogress").map((obj, index) => (<Card taskadd={obj} index={index} status="Inprogress"/> ))}
+        {taskList.filter((cheak)=>cheak.Status === "Done").map((obj, index) => (<Card taskadd={obj}  index={index}  status="Done" /> ))}
       </div>
     </>
   );
