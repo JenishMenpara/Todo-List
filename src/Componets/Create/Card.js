@@ -1,7 +1,12 @@
 import React from "react";
 import "./index.css";
 
-export default function Card({taskadd}) {
+export default function Card({taskadd} ) {
+
+  /* const todocheak = taskList.filter((cheak)=>cheak.Status == "ToDo");
+  const inprogresscheak = taskList.filter((cheak)=>cheak.Status == "Inprogress");
+  const donecheak = taskList.filter((cheak)=>cheak.Status == "Done");
+   */
   return(
 
       <>
@@ -10,17 +15,17 @@ export default function Card({taskadd}) {
           <p className="ReportName">ToDo</p>
           <ul>
             <li>
-              <span>{taskadd.Des}</span>
+              <span>{taskadd.Name}:-{taskadd.Des}</span>
               <button  className="right">ADD</button>
             </li>
           </ul>
         </div>
 
-        <div className="listbox ProgressList">
+        {/* <div className="listbox ProgressList">
           <p className="ReportName">In Progress</p>
           <ul>
             <li>
-              <span>hi</span>
+              <span>{taskadd.Name}:-{taskadd.Des}</span>
               <button className="right">ADD</button>
             </li>
           </ul>
@@ -30,12 +35,12 @@ export default function Card({taskadd}) {
           <p className="ReportName">Done</p>
           <ul>
             <li>
-              <span>hi</span>
+              <span>{taskadd.Name}:-{taskadd.Des}</span>
               <button className="right">REMOVE</button>
             </li>
           </ul>
           
-        </div>
+        </div> */}
       </div>
   </>
 )

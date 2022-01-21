@@ -14,23 +14,27 @@ export default function Index(props) {
     }
     
     
+    
     // set value for title and dec for writing in title and des box
     
     const [taskName, setTaskName] = useState("");
     const [des, setDes] = useState("");
-    //const [status, setStatus] = useState("");
+    const [status, setStatus] = useState("");
 
    
    
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        /* const { name, value } = e.target */
-        if (name === "taskName") {
+        /*  const { name, value } = e.target */
+         if (name === "taskName") {
             setTaskName(value)
-        } else {
+        } else if (name === "des") {
             setDes(value)
-        }
+        } 
+        else {
+            setStatus(value)
+        } 
 
     }
     // save value of title and des in obj array
@@ -38,6 +42,7 @@ export default function Index(props) {
         let taskObj = {}
         taskObj["Name"] = taskName;
         taskObj["Des"] = des;
+        taskObj["Status"] = status;
         props.save(taskObj)
         //alert(taskObj)
         setOpen(false)
@@ -76,7 +81,8 @@ export default function Index(props) {
                                 <div className='form-g' id='text-of-title'>
 
                                 <label>Status:</label>
-                                <select className='show-status' /* name={status} onChange={handleChange}  */id="Status">
+                                <select  value={status} className='show-status' name="status" onChange={handleChange} id="Status" >
+                                    <option value="">select </option>
                                     <option value="ToDo">Todo</option>
                                     <option value="inprogress">Inprogress</option>
                                     <option value="Done">Done</option>
@@ -94,7 +100,7 @@ export default function Index(props) {
 
 
             </div>
-            {/* <Create /> */}
+            
         </>
     )
 }
