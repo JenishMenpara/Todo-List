@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './Componets/Navbar';
 import Create from './Componets/Create/index';
+
 //import Todolist from './Componets/Todolist/index';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
     <Navbar/>
     <Create />
+    
     {/* <Todolist/> */}
 
     </>

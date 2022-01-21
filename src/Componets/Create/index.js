@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Todolist from "../Todolist/index";
 import './List.json';
 import Card from "./Card";
+import './List.json';
 
 export default function Index() {
   const [taskList, setTaskList] = useState([]);
@@ -26,11 +27,12 @@ useEffect(() =>{
   return (
     <>
       <Todolist save={saveTask} />
-      <Card />
-      <div>
-        {taskList.map((obj) => ( <Card taskadd = {obj} />))}
+      
+        {taskList && taskList.map((obj, index) =>  <Card taskadd = {obj} index={index} />)}
+       {/*  {taskList.map((obj)=><p>{obj.Name}, {obj.Des} </p>)} */}
+      
 
-      </div >
+      
      
     </>
   );

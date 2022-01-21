@@ -1,17 +1,16 @@
 import React from "react";
 import "./index.css";
 
-export default function Card({taskadd}) {
-  return(
-
-      <>
- <div className="Main-list-box">
+export default function Card(props) {
+  return (
+    <>
+      <div className="Main-list-box">
         <div className="listbox TodoList">
           <p className="ReportName">ToDo</p>
           <ul>
             <li>
-              <span>{taskadd.Des}</span>
-              <button  className="right">ADD</button>
+              <span>{props.taskadd.Name}:-{props.taskadd.Des}</span>
+              <button className="right">ADD</button>
             </li>
           </ul>
         </div>
@@ -20,7 +19,7 @@ export default function Card({taskadd}) {
           <p className="ReportName">In Progress</p>
           <ul>
             <li>
-              <span>hi</span>
+              {/* <span>hi</span> */}
               <button className="right">ADD</button>
             </li>
           </ul>
@@ -30,13 +29,12 @@ export default function Card({taskadd}) {
           <p className="ReportName">Done</p>
           <ul>
             <li>
-              <span>hi</span>
+              {/* <span>hi</span> */}
               <button className="right">REMOVE</button>
             </li>
           </ul>
-          
         </div>
       </div>
-  </>
-)
+    </>
+  );
 }
