@@ -7,7 +7,7 @@ import Card from "./Card";
 export default function Index() {
   const [taskList, setTaskList] = useState([]);
   const saveTask = (taskObj) => {
-    let temList = taskList;
+    let temList = taskList; 
     temList.push(taskObj);
     localStorage.setItem("taskList", JSON.stringify(temList));
     setTaskList(temList);
@@ -15,7 +15,6 @@ export default function Index() {
 
   useEffect(() => {
     let array = localStorage.getItem("taskList");
-
     if (array) {
       let obj = JSON.parse(array);
       setTaskList(obj);
@@ -24,12 +23,13 @@ export default function Index() {
 
  
 
- /*  const remove = (index) =>{
+  const remove = (index) =>{
     let tempList = taskList
     tempList.splice(index, 1)
     localStorage.setItem("taskList", JSON.stringify(tempList))
     setTaskList(tempList)
-} */
+    window.location.reload()
+}
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function Index() {
       <div>
         {taskList.filter((cheak)=>cheak.Status === "ToDo").map((obj, index) => (<Card taskadd={obj} index={index}  status="Todo"/> ))}
         {taskList.filter((cheak)=>cheak.Status === "Inprogress").map((obj, index) => (<Card taskadd={obj} index={index} status="Inprogress"/> ))}
-        {taskList.filter((cheak)=>cheak.Status === "Done").map((obj, index) => (<Card taskadd={obj}  index={index}  status="Done" /> ))}
+        {taskList.filter((cheak)=>cheak.Status === "Done").map((obj, index) => (<Card taskadd={obj}  index={index}  status="Done" removeitem={remove}  /> ))}
       </div>
     </>
   );
